@@ -5,7 +5,7 @@ export const login = async (email, pwd) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: '/api/v1/users/login',
+            url: 'https://natours-5fkg.onrender.com/api/v1/users/login',
             data: {
                 email,
                 pwd
@@ -15,7 +15,7 @@ export const login = async (email, pwd) => {
         if(res.data.status === 'success'){
             showAlert('success','Logged in successfully',)
             window.setTimeout(()=>{
-                location.assign('/')                
+                location.assign('https://natours-5fkg.onrender.com/')                
             },1500)
         }
         // console.log(res);

@@ -5,13 +5,13 @@ export const signup = async (name, email, pwd, pwdCnfrm) => {
     try {
         const res = await axios({
             method: 'POST',
-            url: 'http://127.0.0.1:3000/api/v1/users/signup',
+            url: 'https://natours-5fkg.onrender.com/api/v1/users/signup',
             data: { name, email, pwd, pwdCnfrm }
         })
         if (res.data.status === 'success') {
             showAlert('success', 'Account created succesfully')
             window.setTimeout(() => {
-                location.assign('/')
+                location.assign('https://natours-5fkg.onrender.com/')
             }, 1500)
         }
         // console.log(res);

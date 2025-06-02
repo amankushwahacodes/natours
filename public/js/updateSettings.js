@@ -5,7 +5,7 @@ import { showAlert } from './alerts';
 // type is either password or data
 export const updateSettings = async (data, type) => {
     try {
-        const url = type === 'pwd' ? '/api/v1/users/updatePassword' : '/api/v1/users/updateMe'
+        const url = type === 'pwd' ? 'https://natours-5fkg.onrender.com/api/v1/users/updatePassword' : '/api/v1/users/updateMe'
         const res = await axios({
             method: 'PATCH',
             url,

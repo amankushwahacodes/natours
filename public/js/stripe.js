@@ -12,7 +12,7 @@ export const bookTour = async (tourId) => {
         }
 
         // Get the session from the backend
-        const sessionRes = await axios.get(`/api/v1/bookings/checkout-session/${tourId}`);
+        const sessionRes = await axios.get(`https://natours-5fkg.onrender.com/api/v1/bookings/checkout-session/${tourId}`);
         console.log(sessionRes);
         const session = sessionRes.data.session;
 
