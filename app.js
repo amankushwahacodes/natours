@@ -8,123 +8,87 @@ const xss = require('xss-clean')
 const hpp = require('hpp')
 const cookieParser = require('cookie-parser')
 const compression = require('compression')
+const cors = require('cors');
+
 
 // Start express app
-const app = new express();
-app.use(express.json({ limit: '10kb' }));
+  const app = new express();
+  app.use(express.json({ limit: '10kb' }));
+
+  app.use(
+    cors({
+      origin: [
+        'http://localhost:3000',
+        'http://localhost:5173',
+        'https://natours-5fkg.onrender.com',
+      ],
+      credentials: true,
+      methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+      allowedHeaders: ['Content-Type', 'Authorization'],
+    }),
+  );
+
+  // 🔥 THIS IS NON-OPTIONAL
+  app.options('*', cors());
 
 
-const AppError = require('./utils/appError')
-const globalErrorHandler = require('./controllers/errorController')
-const tourRouter = require('./routes/tourRoutes')
-const userRouter = require('./routes/userRoutes')
-const reviewRouter = require('./routes/reviewRoutes')
-const bookingRouter = require('./routes/bookingRoutes')
 
-const viewRouter = require('./routes/viewRoutes')
+  const AppError = require('./utils/appError')
+  const globalErrorHandler = require('./controllers/errorController')
+  const tourRouter = require('./routes/tourRoutes')
+  const userRouter = require('./routes/userRoutes')
+  const reviewRouter = require('./routes/reviewRoutes')
+  const bookingRouter = require('./routes/bookingRoutes')
 
-const scriptSrcUrls = [
-  'https://unpkg.com',
-  'https://cdn.jsdelivr.net',
-  'https://js.stripe.com'
-];
+  const viewRouter = require('./routes/viewRoutes')
 
-const styleSrcUrls = [
-  'https://fonts.googleapis.com',
-  'https://unpkg.com' // ✅ Added here
-];
+  const scriptSrcUrls = [
+    'https://unpkg.com',
+    'https://cdn.jsdelivr.net',
+    'https://js.stripe.com'
+  ];
 
-const connectSrcUrls = [
-  'ws:',
-  'http://localhost:*',
-  'ws://localhost:*',
-  'ws://127.0.0.1:*'
-];
+  const styleSrcUrls = [
+    'https://fonts.googleapis.com',
+    'https://unpkg.com' // ✅ Added here
+  ];
 
-
-const fontSrcUrls = [
-  'https://fonts.gstatic.com', 
-  'https://js.stripe.com'
-];
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'self'"], // 🔄 change from [] to "'self'" or a more appropriate fallback
-      connectSrc: ["'self'", ...connectSrcUrls],
-      scriptSrc: ["'self'", ...scriptSrcUrls],
-      styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
-      workerSrc: ["'self'", 'blob:'],
-      objectSrc: [],
-      imgSrc: ["'self'", 'blob:', 'data:', 'https:'],
-      fontSrc: ["'self'", ...fontSrcUrls],
-      frameSrc: ["'self'", 'https://js.stripe.com'] // ✅ Allow Stripe to be framed
-    }
-  })
-);
+  const connectSrcUrls = [
+    'ws:',
+    'http://localhost:*',
+    'ws://localhost:*',
+    'ws://127.0.0.1:*',
+    'https://natours-5fkg.onrender.com',
+  ];
 
 
-app.use(compression())
-
-app.set('view engine', 'pug')
-app.set('views', path.join(__dirname, 'views'))
-
-app.use(express.static(path.join(__dirname, 'public')));
-// app.use(cors());
-
-// GLOBAL MIDDLEWARES
-
-// Set security headers 
-
-// app.use(
-//     helmet({
-//       contentSecurityPolicy: {
-//         directives: {
-//           defaultSrc: ["'self'", 'data:', 'blob:', 'https:', 'ws:'],
-//           baseUri: ["'self'"],
-//           fontSrc: ["'self'", 'https:', 'data:'],
-//           scriptSrc: [
-//             "'self'",
-//             'https:',
-//             'http:',
-//             'blob:',
-//             'https://*.mapbox.com',
-//             'https://js.stripe.com',
-//             'https://m.stripe.network',
-//             'https://*.cloudflare.com',
-//           ],
-//           frameSrc: ["'self'", 'https://js.stripe.com'],
-//           objectSrc: ["'none'"],
-//           styleSrc: ["'self'", 'https:', "'unsafe-inline'"],
-//           workerSrc: [
-//             "'self'",
-//             'data:',
-//             'blob:',
-//             'https://*.tiles.mapbox.com',
-//             'https://api.mapbox.com',
-//             'https://events.mapbox.com',
-//             'https://m.stripe.network',
-//           ],
-//           childSrc: ["'self'", 'blob:'],
-//           imgSrc: ["'self'", 'data:', 'blob:'],
-//           formAction: ["'self'"],
-//           connectSrc: [
-//             "'self'",
-//             "'unsafe-inline'",
-//             'data:',
-//             'blob:',
-//             'https://*.stripe.com',
-//             'https://*.mapbox.com',
-//             'https://*.cloudflare.com/',
-//             'https://bundle.js:*',
-//             'ws://127.0.0.1:*/',
-//           ],
-//           upgradeInsecureRequests: [],
-//         },
-//       },
-//     })
-//   );
+  const fontSrcUrls = [
+    'https://fonts.gstatic.com', 
+    'https://js.stripe.com'
+  ];
+  app.use(
+    helmet.contentSecurityPolicy({
+      directives: {
+        defaultSrc: ["'self'"], // 🔄 change from [] to "'self'" or a more appropriate fallback
+        connectSrc: ["'self'", ...connectSrcUrls],
+        scriptSrc: ["'self'", ...scriptSrcUrls],
+        styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+        workerSrc: ["'self'", 'blob:'],
+        objectSrc: [],
+        imgSrc: ["'self'", 'blob:', 'data:', 'https:'],
+        fontSrc: ["'self'", ...fontSrcUrls],
+        frameSrc: ["'self'", 'https://js.stripe.com'] // ✅ Allow Stripe to be framed
+      }
+    })
+  );
 
 
+  app.use(compression())
+
+  app.set('view engine', 'pug')
+  app.set('views', path.join(__dirname, 'views'))
+
+  app.use(express.static(path.join(__dirname, 'public')));
 
 
 if (process.env.NODE_ENV === 'development') {
