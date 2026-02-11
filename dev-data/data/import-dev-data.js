@@ -4,8 +4,6 @@ const Tour = require('./../../models/tourModel')
 const User = require('./../../models/userModel')
 const Review = require('./../../models/reviewModel')
 const mongoose = require('mongoose')
-
-const app = require('./../../app')
 const dotenv = require('dotenv')
 
 dotenv.config({ path: './config.env' });
@@ -15,7 +13,7 @@ mongoose.connect(db, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then((con) => {
-    // console.log('Connection successfull');
+    console.log('Connection successfull');
 });
 
 // Reading file
@@ -27,21 +25,21 @@ const reviews = JSON.parse(fs.readFileSync(`${__dirname}/reviews.json`, 'utf-8')
 const importData = async () => {
     try {
         await Review.create(reviews);
-        // await Tour.create(tours);
-        // await User.create(users, {validateBeforeSave : false});
-        // console.log('Data successfully loaded');
+        await Tour.create(tours);
+        await User.create(users, {validateBeforeSave : false});
+        console.log('Data successfully loaded');
     }
     catch(err) {
-        // console.log(err);
+        console.log(err);
     }
 }
 
 const deleteData = async () => {
     try {
-        // await Tour.deleteMany();
-        // await User.deleteMany();
+        await Tour.deleteMany();
+        await User.deleteMany();
         await Review.deleteMany();
-        // console.log('Data successfully deleted');
+        console.log('Data successfully deleted');
     }
     catch(err) {
         // console.log(err);
