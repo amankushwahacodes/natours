@@ -43,6 +43,10 @@ body {
   flex-direction: column;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .main {
   background-color: #f7f7f7;
   padding: 8rem 6rem;
