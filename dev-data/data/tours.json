@@ -19,7 +19,7 @@
   "duration": 8,
   "maxGroupSize": 20,
   "difficulty": "easy",
-  "guides": ["5c8a22c62f8fb814b56fa18b", "5c8a201e2f8fb814b56fa186"],
+  "guides": ["5c8a21d02f8fb814b56fa189","5c8a1f292f8fb814b56fa184"],
   "price": 25999,
   "summary": "Explore India's iconic cities blending heritage, culture, and modern life.",
   "description": "Experience the vibrant contrasts of India’s most iconic cities. Discover Delhi’s historic monuments, witness the Taj Mahal in Agra, explore Mumbai’s bustling city life, and dive into Bengaluru’s modern tech culture. A perfect city-based journey for cultural explorers.",
@@ -73,10 +73,10 @@
   "duration": 8,
   "maxGroupSize": 12,
   "difficulty": "difficult",
-  "guides": [
-    "5c8a21d02f8fb814b56fa189",
-    "5c8a201e2f8fb814b56fa186"
-  ],
+  "guides":  [
+  "5c8a21d02f8fb814b56fa189",
+  "5c8a1f292f8fb814b56fa185"
+],
   "price": 34999,
   "summary": "Conquer high-altitude Himalayan passes and explore breathtaking landscapes of Ladakh.",
   "description": "Embark on an unforgettable Himalayan expedition through Ladakh’s rugged terrain. Cross Khardung La Pass, witness the surreal blue waters of Pangong Lake, explore Nubra Valley’s cold desert, and experience authentic mountain culture. Designed for adventure seekers ready to push their limits.",
@@ -123,10 +123,10 @@
   "duration": 9,
   "maxGroupSize": 18,
   "difficulty": "medium",
-  "guides": [
-    "5c8a21f22f8fb814b56fa18a",
-    "5c8a23412f8fb814b56fa18c"
-  ],
+  "guides":[
+  "5c8a1f4e2f8fb814b56fa184",
+  "5c8a21d02f8fb814b56fa189"
+],
   "price": 28999,
   "summary": "Explore majestic forts, royal palaces, and the golden sands of Rajasthan.",
   "description": "Journey through Rajasthan’s rich heritage and desert landscapes. Discover Jaipur’s Pink City charm, explore Udaipur’s lakeside palaces, experience Jodhpur’s mighty Mehrangarh Fort, and enjoy a thrilling camel safari in the Thar Desert at Jaisalmer. A perfect blend of culture, history, and adventure.",
@@ -178,7 +178,10 @@
   "duration": 8,
   "maxGroupSize": 8,
   "difficulty": "medium",
-  "guides": ["5c8a21d02f8fb814b56fa189", "5c8a1f292f8fb814b56fa184"],
+  "guides": [
+  "5c8a1f4e2f8fb814b56fa185",
+  "5c8a21d02f8fb814b56fa189"
+],
   "price": 38999,
   "summary": "Explore India's most breathtaking dark sky regions and witness the Milky Way like never before.",
   "description": "Experience crystal-clear night skies in Hanle, home to one of India's highest astronomical observatories. Continue to Spiti Valley’s remote high-altitude villages and end the journey at the white salt desert of Rann of Kutch. Perfect for astrophotographers and night sky enthusiasts seeking minimal light pollution.",
@@ -225,9 +228,9 @@
   "maxGroupSize": 12,
   "difficulty": "easy",
   "guides": [
-    "5c8a21f22f8fb814b56fa18a",
-    "5c8a201e2f8fb814b56fa186"
-  ],
+  "5c8a1f4e2f8fb814b56fa185",
+  "5c8a21d02f8fb814b56fa189"
+],
   "price": 21999,
   "summary": "Experience snowfall, skiing, and breathtaking Himalayan winter landscapes.",
   "description": "Enjoy a magical winter escape in Gulmarg with fresh snowfall, skiing adventures, gondola rides, and panoramic Himalayan views. Perfect for couples and families seeking a snowy retreat.",
@@ -263,7 +266,7 @@
   "maxGroupSize": 8,
   "difficulty": "difficult",
   "guides": [
-    "5c8a21f22f8fb814b56fa18a",
+    "5c8a21f22f8fb814b56fa189",
     "5c8a1f292f8fb814b56fa184"
   ],
   "price": 45999,
@@ -326,9 +329,9 @@
   "maxGroupSize": 8,
   "difficulty": "easy",
   "guides": [
-    "5c8a22c62f8fb814b56fa18b",
-    "5c8a23412f8fb814b56fa18c"
-  ],
+  "5c8a1f4e2f8fb814b56fa185",
+  "5c8a21d02f8fb814b56fa189"
+],
   "price": 24999,
   "summary": "Luxury vineyard stays, premium wine tastings, and scenic countryside views.",
   "description": "Relax in the wine capital of India with exclusive vineyard tours, barrel tastings, and countryside luxury stays. Explore Sula Vineyards and enjoy curated dining experiences amidst lush green landscapes.",
@@ -368,35 +371,35 @@
   "duration": 5,
   "maxGroupSize": 12,
   "difficulty": "easy",
-  "guides": ["5c8a22c62f8fb814b56fa18b", "5c8a1f4e2f8fb814b56fa185"],
+ "guides": [
+  "5c8a1f292f8fb814b56fa184",
+  "5c8a21d02f8fb814b56fa189"
+],
   "price": 18999,
   "summary": "Experience the vibrant beaches, nightlife, and water adventures of Goa.",
   "description": "Discover the best of Goa with golden beaches, thrilling water sports, and vibrant nightlife. Relax at Baga and Calangute beaches, explore historic Fort Aguada, and cruise through the scenic Chapora River. Enjoy local Goan cuisine and immerse yourself in coastal culture.",
   "imageCover": "goa-cover.jpg",
   "locations": [
     {
-      "_id": "5c88fa8cf4afda39709c2959",
       "description": "Baga Beach",
       "type": "Point",
       "coordinates": [73.7500, 15.5553],
       "day": 1
     },
     {
-      "_id": "5c88fa8cf4afda39709c2958",
       "description": "Fort Aguada",
       "type": "Point",
       "coordinates": [73.7667, 15.4989],
       "day": 2
     },
     {
-      "_id": "5c88fa8cf4afda39709c2957",
+     
       "description": "Chapora Fort",
       "type": "Point",
       "coordinates": [73.7346, 15.6010],
       "day": 3
     },
     {
-      "_id": "5c88fa8cf4afda39709c2956",
       "description": "Dudhsagar Waterfalls",
       "type": "Point",
       "coordinates": [74.3140, 15.3144],
