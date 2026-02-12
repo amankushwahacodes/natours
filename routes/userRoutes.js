@@ -16,7 +16,7 @@ router.patch('/resetPassword/:token', authController.resetPassword)
 router.use(authController.protect)
 router.patch('/updatePassword',authController.updatePassword)
 router.get('/me',userController.getMe,userController.getUser)
-router.patch('/updateMe',userController.uploadUserPhoto,userController.resizeUserPhoto,userController.updateMe)
+router.patch('/updateMe',userController.uploadUserPhoto,userController.uploadUserPhotoToCloudinary,userController.updateMe)
 router.delete('/deleteMe',userController.deleteMe)
 
 router.use(authController.restrictTo('admin'))
